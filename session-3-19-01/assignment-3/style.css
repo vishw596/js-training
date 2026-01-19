@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header h1 {
+    text-align: center;
+}
+.container {
+    height: 100vh;
+    margin-top: 50px;
+}
+.exercise {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.input-container input {
+    padding: 12px;
+    width: 20rem;
+}
+
+.input-container input::placeholder {
+    text-align: center;
+}
+
+.input-container button {
+    padding: 10px;
+}
