@@ -1,4 +1,5 @@
 function masterClone(obj) {
+    if (typeof obj !== "object") return obj;
     const newObj = {};
     for (key in obj) {
         if (typeof obj[key] === "object") {
@@ -37,3 +38,5 @@ newArr[3][0] = 50;
 console.log(arr);
 console.log(newArr);
 
+const function1 = masterClone(24);
+console.log(function1);
