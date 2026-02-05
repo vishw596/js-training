@@ -1,0 +1,73 @@
+// 3. JS: Transform Array of Objects into Tag-Based Mapping
+
+// Problem Statement
+
+// You are given an array of objects.
+// Each object contains:
+
+// id (number)
+
+// tags (array of strings)
+
+// Some objects may have duplicate id values.
+
+// Your task is to transform this array into an object where:
+
+// Each key is a unique tag
+
+// Each value is an array of unique IDs associated with that tag
+
+// IDs inside each array should be sorted in ascending order
+
+// Duplicate IDs for the same tag should appear only once
+
+// Example Input
+
+// const input = [
+//   { id: 3, tags: ["a", "b"] },
+//   { id: 1, tags: ["b", "c"] },
+//   { id: 2, tags: ["a", "c", "d"] },
+//   { id: 2, tags: ["d", "e"] } // duplicate id
+// ];
+
+
+// Example Output
+
+// {
+//   a: [2, 3],
+//   b: [1, 3],
+//   c: [1, 2],
+//   d: [2],
+//   e: [2]
+// }
+
+
+
+
+
+const input = [
+    { id: 1, tags: ["a", "b", "d"] },
+    { id: 2, tags: ["e"] },
+    { id: 3, tags: ["c", "d"] },
+    { id: 2, tags: ["b", "d"] },
+    { id: 2, tags: ["b", "d", "c"] },
+];
+const tagMap = input.reduce((acc, el) => {
+    for (const tag of el.tags) {
+        if (acc[tag]) {
+            if (!acc[tag].includes(el.id)) {
+                acc[tag].push(el.id);
+            }
+        } else {
+            acc[tag] = [el.id];
+        }
+    }
+    return acc;
+}, {});
+
+for(const el in tagMap){
+    tagMap[el] = tagMap[el].sort()
+}
+console.log(tagMap);
+
+
