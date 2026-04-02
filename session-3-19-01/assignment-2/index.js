@@ -2,7 +2,9 @@
 const button = document.getElementById("btn");
 button.addEventListener("click", () => {
     const prices = document.getElementById("prices").value.split(",");
-    const modifiedPrices = prices.map((el) => `$${el}`);
+    const modifiedPrices = prices.map((el) =>
+        new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(el),
+    );
     console.log(modifiedPrices);
     const result = document.getElementById("result");
     result.innerHTML = `<h3>Formatted Prices: ${modifiedPrices}</h3>`;
@@ -20,8 +22,8 @@ button2.addEventListener("click", () => {
 const button3 = document.getElementById("btn2");
 button3.addEventListener("click", () => {
     const ages = document.getElementById("numbers").value.split(",");
-    const positiveNums = ages.filter((el)=> el > 0)
-    const multiplyByTwo = positiveNums.map(el => el*2)
+    const positiveNums = ages.filter((el) => el > 0);
+    const multiplyByTwo = positiveNums.map((el) => el * 2);
     const result = document.getElementById("result2");
     result.innerHTML = `<h3>Output : ${multiplyByTwo}</h3>`;
 });
